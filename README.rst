@@ -1,5 +1,9 @@
-``datafreeze``
-==============
+datafreeze
+==========
+
+.. figure:: https://api.travis-ci.org/datafreeze/aleph.png
+   :target: https://travis-ci.org/pudo/datafreeze/
+   :alt: Build Status
 
 ``datafreeze`` creates static extracts of SQL databases for use in interactive
 web applications. SQL databases are a great way to manage relational data, but
