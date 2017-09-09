@@ -16,6 +16,17 @@ With ``datafreeze``, exports are scripted in a Makefile-like description,
 making them simple to repeat and replicate.
 
 
+Installation
+------------
+
+The easiest way to install ``datafreeze`` is to retrieve it from the Python
+package index using ``pip``:
+
+.. code-block:: bash
+
+    pip install datafreeze
+
+
 Basic Usage
 -----------
 
