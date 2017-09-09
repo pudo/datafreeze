@@ -1,7 +1,6 @@
 # coding: utf8
 from __future__ import unicode_literals
 import os
-import six
 from csv import reader
 import unittest
 from tempfile import mkdtemp
