@@ -1,9 +1,8 @@
 import logging
 import argparse
 
+import dataset
 from sqlalchemy.exc import ProgrammingError, OperationalError
-from dataset.persistence.table import Table
-from dataset.persistence.database import Database
 from datafreeze.util import FreezeException
 from datafreeze.config import Configuration, Export
 from datafreeze.format import get_serializer
@@ -121,14 +120,14 @@ def freeze(result, format='csv', filename='freeze.csv', fileobj=None,
     if format in ['json', 'tabson'] and 'indent' not in kw:
         kw['indent'] = 2
 
-    records = result.all() if isinstance(result, Table) else result
+    records = result.all() if isinstance(result, dataset.Table) else result
     return freeze_export(Export({}, kw), result=records)
 
 
 def freeze_export(export, result=None):
     try:
         if result is None:
-            database = Database(export.get('database'))
+            database = dataset.connect(export.get('database'))
             query = database.query(export.get('query'))
         else:
             query = result
