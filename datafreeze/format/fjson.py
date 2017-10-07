@@ -43,10 +43,7 @@ class JSONSerializer(Serializer):
             result = self.wrap(result)
 
             if self.fileobj is None:
-                if PY3:  # pragma: no cover
-                    fh = open(path, 'w', encoding='utf8')
-                else:
-                    fh = open(path, 'wb')
+                fh = open(path, 'wb')
             else:
                 fh = self.fileobj
 
@@ -58,6 +55,9 @@ class JSONSerializer(Serializer):
             if callback:
                 data = "%s && %s(%s);" % (callback, callback, data)
 
-            fh.write(data)
+            if PY3:
+                fh.write(bytes(data, encoding='utf8'))
+            else:
+                fh.write(data)
             if self.fileobj is None:
                 fh.close()
