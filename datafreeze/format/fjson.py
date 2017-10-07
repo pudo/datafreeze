@@ -44,7 +44,7 @@ class JSONSerializer(Serializer):
 
             if self.fileobj is None:
                 if PY3:  # pragma: no cover
-                    fh = open(path, 'w', encoding='utf8')
+                    fh = open(path, 'wb', encoding='utf8')
                 else:
                     fh = open(path, 'wb')
             else:
