@@ -58,6 +58,9 @@ class JSONSerializer(Serializer):
             if callback:
                 data = "%s && %s(%s);" % (callback, callback, data)
 
-            fh.write(data)
+            if PY3:
+                fh.write(bytes(data, encoding='utf8'))
+            else:
+                fh.write(data)
             if self.fileobj is None:
                 fh.close()
