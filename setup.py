@@ -35,8 +35,8 @@ setup(
     zip_safe=False,
     install_requires=[
         'dataset >= 1.0.0',
-        "PyYAML >= 3.10",
-        "six >= 1.7.3",
+        'PyYAML >= 3.10',
+        'six >= 1.7.3',
         'normality >= 1.0.0',
     ] + py26_dependency,
     tests_require=[],
